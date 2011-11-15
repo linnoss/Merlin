@@ -1,0 +1,65 @@
+<Wizard>
+    <Page nextPageId="1">
+        <Id>0</Id>
+        <Text>Welcome to the Linn DS installation wizard</Text>
+        <Description>This wizard will guide you through your DS setup</Description>
+    </Page>
+    <Page nextPageId="2">
+        <Id>1</Id>
+        <Text>Unpacking your product</Text>
+        <Description>Remove your product from its packaging, attach the power lead, network cable and switch it on.</Description>
+        <Image product="Klimax DSM">UnpackingKdsm.png</Image>
+        <Image product="Akurate DSM">UnpackingAdsm.png</Image>
+        <Image product="Majik DSM">UnpackingMdsm.png</Image>
+    </Page>
+    <Page nextPageId="3">
+        <Id>2</Id>
+        <Text>Select your product</Text>
+        <Description></Description>
+        <Input getPlugin="GetProducts" setPlugin="SetProduct" />
+    </Page>
+    <Page nextPageId="4">
+        <Id>3</Id>
+        <Text>What room is your DS in?</Text>
+        <Description></Description>
+        <Input setPlugin="SetRoom">
+            <Allowed type="string">
+                <Value>Sitting Room</Value>
+            </Allowed>
+            <Allowed type="string">
+                <Value>Kitchen</Value>
+            </Allowed>
+            <Allowed type="string">
+                <Value>Master Bedroom</Value>
+            </Allowed>
+            <Allowed type="string">
+                <Value>Study</Value>
+            </Allowed>
+            <Allowed type="string">
+                <Value>Other</Value>
+            </Allowed>
+        </Input>
+    </Page>
+    <Page>
+        <Id>4</Id>
+        <Text>Do you have a Pre-Amp?</Text>
+        <Description></Description>
+        <Input>
+            <Allowed type="boolean" nextPageIdTrue="5" nextPageIdFalse="6" />\
+        </Input>
+    </Page>
+    <Page>
+        <Id>5</Id>
+        <Text>Startup volume</Text>
+        <Description></Description>
+        <Input>
+            <Allowed type="uint" minValue="0" maxValue="100" />
+        </Input>
+    </Page>
+    <Page>
+        <Id>6</Id>
+        <Text>Startup source</Text>
+        <Description></Description>
+        <Input getPlugin="GetSourceNames" />
+    </Page>
+</Wizard>
